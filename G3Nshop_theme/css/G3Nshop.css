@@ -477,6 +477,60 @@ ul.tags li a:hover {
 	font-size:0.85rem;
 	display:inline-block;
 }
+
+.btn-success {
+	border-color:#0062cc;
+	background: #0062cc;
+	padding:3px 10px;
+	text-align:center;
+	border-radius:999em;
+	font-size:0.85rem;
+	display:inline-block;
+}
+
+.btn-success:hover{
+	border-color:#0062cc;
+	background: #0062cc;
+	padding:3px 10px;
+	text-align:center;
+	border-radius:999em;
+	font-size:0.85rem;
+	display:inline-block;
+}
+
+.btn-success:focus{
+	border-color:#0062cc;
+	background: #0062cc;
+	padding:3px 10px;
+	text-align:center;
+	border-radius:999em;
+	font-size:0.85rem;
+	display:inline-block;
+}
+
+.btn-success.focus{
+	border-color:#0062cc;
+	background: #0062cc;
+	padding:3px 10px;
+	text-align:center;
+	border-radius:999em;
+	font-size:0.85rem;
+	display:inline-block;
+}
+
+.btn {
+	border-color:#007bff;
+
+	background: #007bff;
+	padding:3px 10px;
+	text-align:center;
+	border-radius:999em;
+	font-size:0.85rem;
+	display:inline-block;
+}
+
+
+
 .btn.subscribe {
 	background-color:#1C9963;
 	border-color:#1C9963;
@@ -559,8 +613,8 @@ a img.nav-svg-icon {
 }
 .plugin.plugin-search{display:none;}
 .formAgregarCarrito{
-	border-top: 2px solid #f60;
-	border-bottom: 2px solid #f60;
+	border-top: 2px solid #007bff;
+	border-bottom: 2px solid #007bff;
 	padding: 1em;
 }
 ul.tags li.producto-color-Gris a{	background: gray; color:#fff; font-weight:700;}
