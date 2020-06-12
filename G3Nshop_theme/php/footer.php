@@ -23,15 +23,14 @@
 		
 		
 		<p class="col-12 text-center p-3 border-top">
-			Copyright © 2019<br>
-			Powered:
+			Copyright Indybudmarv2 © 2020<br>
+			Powered by:
 			<a title="Bludit CMS" class="nav-link" href="https://www.bludit.com/" target="_blank">
 				<img height="30" src="<?php echo DOMAIN_THEME.'img/logo-bludit.svg' ?>" alt="Bludit CMS" />
 			</a>
 			&
-			<a title="G3Nshop Ecommerce Solution" class="nav-link" href="http://g3n.es/g3nshop-tienda-on-line" target="_blank">
-				<img height="40" src="<?php echo DOMAIN_THEME.'img/logo.png' ?>" alt="G3Nshop" />
-			</a>
+			<br>
+	       a heavily modified version of <a href="http://g3n.es/g3nshop-tienda-on-line">G3Nshop Ecommerce Solution</a>
 
 		</p>
 	

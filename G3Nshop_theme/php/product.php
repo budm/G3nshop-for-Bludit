@@ -7,12 +7,11 @@
 					<a href="<?php echo DOMAIN_CATEGORIES.$catecoriaG3Nshop; ?>">
 						<?php echo $NcategoriaG3Nshop; ?>
 					</a>
-				<?php echo "/".$url->slug();  ?>	
 				</span>
 			</h2>
 		</div>
-		<?php include(THEME_DIR_PHP.'side-filters.php'); ?>
-		
+		<br>
+		<br>
 		<!-- Begin Post -->
 		<div class="col-md-9 col-md-offset-2 col-xs-12">
 
@@ -25,12 +24,12 @@
 
 			<!-- Begin Cover Image -->
 			<?php if ($page->coverImage()): ?>
-			<img class="featured-image img-fluid" src="<?php echo $page->coverImage(); ?>" alt="<?php echo $page->title(); ?>">
+			<img class="product-image img-fluid" src="<?php echo $page->coverImage(); ?>" alt="<?php echo $page->title(); ?>">
 			<?php endif ?>
 			<!-- End Cover Image -->
 			<!-- Begin Tags -->
 			<?php if (!empty($page->tags(true))): ?>
-			<div class="after-post-tags">
+ 			<div class="after-post-tags">
 				<ul class="tags">
 					<?php foreach ($page->tags(true) as $tagKey=>$tagName):
 							
@@ -70,18 +69,24 @@
 						$propiedadesProducto .= " ".$arrayColores[0];
 					} ?>
 				</ul>
+				
 			</div>
 			<?php endif; ?>
 			<!-- End Tags -->
+			<br>
+			<br>
+			<br>
 			<!-- Begin Post Content -->
 			<div class="article-post">
 				<?php if($precio !== "" && $precio !== "0" && $precio !== "0.00"){ ?>
 				<form class="formAgregarCarrito" action="<?php echo $urlPaypal; ?>" method="post">
+				    
+				    <?php echo $page->content(); ?>
+				    
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="add" value="1" />
 					<input type="hidden" name="business" value="<?php echo $cuentaPaypal; ?>" />
 					<input type="hidden" name="item_name" value="<?php echo $page->title().$propiedadesProducto; ?>" />
-					<input type="hidden" name="quantity" value="1" />
 					<input type="hidden" name="amount" value="<?php echo $precio; ?>" />
 					<input type="hidden" name="currency_code" value="<?php echo $moneda; ?>" />
 					<input type="hidden" name="shipping" value="1.00">
@@ -102,22 +107,36 @@
 					<?php if(count($arrayColores) > 1){
 						$conTC++ ; ?>
 						<label>
-						<?php echo $language->p('colores'); ?>
-						<input type="hidden" name="on<?php echo $conTC; ?>" value="<?php echo $language->p('colores'); ?>" />
+						<?php echo $language->p('Color:'); ?>
+						<input type="hidden" name="on<?php echo $conTC; ?>" value="<?php echo $language->p('Color:'); ?>" />
 						<select name="os<?php echo $conTC; ?>">
 							<?php foreach($arrayColores as $valor){; ?>
 							<option value="<?php echo $valor; ?>" ><?php echo $valor; ?></option>
 							<?php } ?>
 						</select>
 						</label>
-					<?php } ?>
+						<br>
+						Quantity: 
+					<input type="visible" name="quantity" value="1" />
+					<br>
+	
+		<!-- Begin Price -->
+			<?php if (!empty($page->tags(true))): ?>
+ 			<div class="after-post-tags">
+				<ul class="price">
+					$<?php echo $precio; ?> USD ea
+				</ul>
+			</div>
+			<?php endif; ?>
+		<!-- End Price -->
+
+                    <?php } ?>
 					
 					<input class="btn btn-success" type="submit" name="submit" value="<?php echo $language->p('agregar-carro'); ?>" />
 					
 				</form>
 				<?php } ?>
 				
-				<?php echo $page->content(); ?>
 			</div>
 			<!-- End Post Content -->
 

@@ -8,7 +8,7 @@
 	<div class="row">
             <div class="col-sm-3">
                 <a class="navbar-brand" href="<?php echo $site->url(); ?>">
-                    <img src="<?php echo Theme::src('img/logo.png'); ?>" title="Volver a Portada G3N.es | TecnoCreaciones + Marketing y Comunicación" alt="G3N.es | Diseño Web | Desarrollo APP">
+                    <img src="<?php echo Theme::src('img/logo.png'); ?>" title="Indybudmarv2" alt="Indybudmarv2">
                 </a>
             </div>
 		<!-- Begin Menu -->

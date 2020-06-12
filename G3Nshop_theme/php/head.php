@@ -3,7 +3,7 @@
 <meta name="author" content="Bludit CMS">
 
 <!-- Dynamic title tag -->
-<?php echo Theme::metaTags('title'); ?>
+
 
 <!-- Dynamic description tag -->
 <?php echo Theme::metaTags('description'); ?>

@@ -6,13 +6,15 @@ License: https://www.wowthemes.net/freebies-license/
 */
 body {
 	padding-top:7rem;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 
 }
 .mainheading {
 	padding:1rem 0rem;
+	font-family: -apple-system,BlinkMacSystemFont, "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 a {
-	color:#00ab6b;
+	color:#007bff;
 }
 a,a:hover {
 	transition:all 0.2s;
@@ -24,6 +26,7 @@ a,a:hover {
 section {
 	margin-bottom:20px;
 }
+/*
 .section-title h2 {
 	border-bottom:1px solid rgba(0,0,0,.15);
 	margin-bottom:25px;
@@ -31,12 +34,13 @@ section {
 	font-size:1.4rem;
 	margin-bottom:27px;
 }
-.section-title span {
+*/
+/*.section-title span {
 	border-bottom:1px solid rgba(0,0,0,.44);
 	display:inline-block;
 	padding-bottom:20px;
 	margin-bottom:-1px;
-}
+}*/
 @media (min-width:576px) {
 	.card-columns.listfeaturedtag {
 		-webkit-column-count:2;
@@ -106,7 +110,13 @@ section {
 	
 }
 .col-md-9 {
-	padding:2em;
+    margin: auto;
+	padding-top: 0em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+    padding-left: 2em;
+    max-width: 95%;
+    flex: 0 0 95%;
 }
 .listfeaturedtag .thumbnail {
 	background-size:cover;
@@ -266,7 +276,7 @@ span.post-name a,span.post-read-more a:hover {
 	cursor:pointer;
 }
 .mediumnavigation .navbar-brand img {
-	max-height:72px;
+	max-height:40px;
 	margin-right:5px;
 	position:absolute;
 	top:0;
@@ -280,6 +290,7 @@ span.post-name a,span.post-read-more a:hover {
 	margin-bottom:1rem;
 }
 .footer {
+    margin: auto;
 	border-top:1px solid rgba(0,0,0,.05)!important;
 	padding-top:15px;
 	padding-bottom:12px;
@@ -291,7 +302,7 @@ span.post-name a,span.post-read-more a:hover {
 	color:rgba(0,0,0,.8);
 }
 .article-post {
-	font-family:Merriweather;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 	font-size:1.2rem;
 	line-height:1.8;
 	color:rgba(0,0,0,.8);
@@ -306,10 +317,21 @@ blockquote {
 	margin:0 0 1.5rem 0;
 }
 .featured-image {
+    max-width: 100%;
+    position: center;
 	display:block;
 	margin:0px auto;
 	margin-bottom:1.5rem;
 }
+
+.product-image {
+    max-width: 75%;
+    position: center;
+	display:block;
+	margin:0px auto;
+	margin-bottom:1.5rem;
+}
+
 .share {
 	text-align:center;
 	margin-top:20px;
@@ -397,12 +419,11 @@ ul.tags {
 	padding-left:0;
 }
 ul.tags li {
-	display:inline-block;
+	display:none;
 	font-size:0.9em;
 	margin:  0.9em 0 0 0;
 }
 ul.tags li.precio {
-	display:block;
 	font-size:1.5em;
 }
 ul.tags li.precio a {
@@ -411,6 +432,14 @@ ul.tags li.precio a {
 	background:transparent;
 	padding:0;
 }
+
+ul.price li.precio a {
+	font-weight:700;
+	color:#f60;
+	background:transparent;
+	padding:0;
+}
+
 ul.tags.precios li.precio {
 	display:inline-block;
 	font-size:1em;
@@ -565,5 +594,5 @@ ul.tags li.oferta a{
 	color: #def;
 	font-size:1.5em;
 	font-weight: 700;
-	box-shadow: 0px 10px 10px -10px rgba(0,0,0,.25);
+	box-shadow: 0 10px 10px 5px rgba(0,0,0,.10);
 }

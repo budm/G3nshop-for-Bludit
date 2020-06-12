@@ -3,13 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="section-title section-title col-12">
-			<h2><span>
-					
-					<a href="<?php echo $arrayPagina['category']; ?>">
-						<?php echo $page->category(); ?>
-					</a>	
-				</span>
-			</h2>
+
 		</div>
 				
 		<!-- Begin Post -->
@@ -19,7 +13,7 @@
 			<?php Theme::plugins('pageBegin'); ?>
 
 			<div class="mainheading">
-				<h1 class="posttitle"><?php echo $page->title(); ?></h1>
+				
 			</div>
 
 			<!-- Begin Cover Image -->
@@ -55,7 +49,5 @@
 	<!-- End List Posts
 	================================================== -->
 		
-		<?php include(THEME_DIR_PHP.'side.php'); ?>
 	</div>
-	<?php include(THEME_DIR_PHP.'related.php'); ?>
 
