@@ -1,3 +1,5 @@
+### This Readme will be reworked as I work on this project.
+
 ### [en]
 ### G3Nshop plugin + theme | Ecommerce solution for Bludit 3.8
 PHP 7.1 o superior
