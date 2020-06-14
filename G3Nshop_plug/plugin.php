@@ -7,7 +7,13 @@ class pluginG3Nshop extends Plugin {
 		  'categoria'	=> '',
 		  'moneda' => '',
 		  'cuentaPaypal'	=> '',
-		  'modoPruebas' => '1'
+		  'modoPruebas' => '1',
+		  
+		  // budm Variant mods
+		  
+		  'shopbar' => '1',
+		  'shopbarphrase'	=> ''
+		  
 		);
 	}
 	// Formulario de Configuración 
@@ -54,7 +60,7 @@ class pluginG3Nshop extends Plugin {
 		$html .='<option value="'.$this->getValue('moneda').'" selected>'.$this->getValue('moneda').'</option>';
 		$html .='
 		<option value="EUR">EUR - Euro</option>
-		<option value="USD">USD - Dólar americano</option>
+		<option value="USD">USD - US Dollar</option>
 		<option value="AED">AED - Dirham de Emiratos Árabes Unidos</option>
 		<option value="ARS">ARS - Peso argentino</option>
 		<option value="AUD">AUD - Dólar australiano</option>
@@ -156,9 +162,25 @@ class pluginG3Nshop extends Plugin {
 		<option value="2" '.$ventasSeleccionado.'>'.$L->get('ventas').'</option>
 	</select>
 </div>
+
+   
+
+<div>
+	<label>Enable Shop Bar:</label>
+	<select name="barmode" >
+		<option value="1" '.$barmode.'>'.$L->get(Disabled).'</option>
+		<option value="2" '.$barmodeenabled.'>'.$L->get(Enabled).'</option>
+	</select>
+</div>
+
+<div>
+	<label>Shop Notification Bar:</label>
+	<input type="text" name="shopbarphrase" value="'.$this->getValue('shopbarphrase').'This is a Test" />
+</div>
+
 <hr>
-<a title="G3Nshop Web" class="" href="http://g3n.es/g3nshop-tienda-on-line">G3Nshop Web</a><hr>
-<a title="Dona" class="btn btn-warning" href="http://g3n.es/g3nshop-tienda-on-line">'.$L->get('donar').'</a>
+<a title="Github Fork" class="" href="https://github.com/budm/G3nshop-for-Bludit/tree/master/G3Nshop_theme/css">Budms Variant Github</a><hr>
+
 
 ';      
 		return $html;
