@@ -30,7 +30,7 @@
 			</a>
 			&
 			<br>
-	       a heavily modified version of <a href="http://g3n.es/g3nshop-tienda-on-line">G3Nshop Ecommerce Solution</a>
+	       Our variant of <a href="https://github.com/budm/G3nshop-for-Bludit/">G3Nshop Ecommerce Solution</a>
 
 		</p>
 	
