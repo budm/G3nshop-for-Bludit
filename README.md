@@ -20,7 +20,7 @@ PHP 7.1 or better
 
 > Responsive Navbar
 
-> *Coming soon* Shop Notification Bar
+>  Shop Notification Bar *Most the code is in place, just getting it working.*
 
 
 **Installation**:
