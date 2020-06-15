@@ -23,15 +23,15 @@
 		
 		
 		<p class="col-12 text-center p-3 border-top">
-			Copyright Indybudmarv2 © 2020<br>
-			Powered by:
-			<a title="Bludit CMS" class="nav-link" href="https://www.bludit.com/" target="_blank">
+			Copyright Indybudmarv2 © 2020<br><br>
+                    Powered by:<br>
+<a title="Bludit CMS" class="nav-link" href="https://www.bludit.com/" target="_blank">
 				<img height="30" src="<?php echo DOMAIN_THEME.'img/logo-bludit.svg' ?>" alt="Bludit CMS" />
-			</a>
-			&
-			<br>
-	       Our variant of <a href="https://github.com/budm/G3nshop-for-Bludit/">G3Nshop Ecommerce Solution</a>
-
+			</a><br>
+&<br>
+<a title="Our variant of G3Nshop" class="nav-link" href="https://github.com/budm/G3nshop-for-Bludit/" target="_blank">
+				<img height="30" src="<?php echo DOMAIN_THEME.'img/github.svg' ?>" alt="G3Nshop Ecommerce Solution" />
+			</a><br>
 		</p>
 	
 	</div>
