@@ -18,6 +18,8 @@ PHP 7.1 or better
 
 > Added Share options to products
 
+> Responsive Navbar
+
 > *Coming soon* Shop Notification Bar
 
 
