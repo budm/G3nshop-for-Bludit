@@ -9,7 +9,7 @@ class pluginG3Nshop extends Plugin {
 		  'cuentaPaypal'	=> '',
 		  'modoPruebas' => '1',
 		  'type' => 'Stickybar', 
-		    'title' => 'Fork me on Github',  
+		  'toptitle' => 'Fork me on Github',  
 		    'url' => 'https://github.com',
 		    'display' => 'right',
 		    'display2' => 'top',    
@@ -176,7 +176,7 @@ class pluginG3Nshop extends Plugin {
 
 <div>
 <label>'.$L->get('Title').'</label>
-<input type="text" name="title" value="'.$this->getValue('title').'" required/>
+<input type="text" name="toptitle" value="'.$this->getValue('toptitle').'" required/>
 </div>	
 
 <div>
@@ -459,7 +459,7 @@ EOT;
 	public function siteBodyEnd()
 	{ 		
 			$html  = '<div class="' .$this->getDbField('type'). '">'.PHP_EOL;
-            $html .= '<a href="' .$this->getDbField('url'). '">' .$this->getDbField('title'). '</a>'.PHP_EOL;
+            $html .= '<a href="' .$this->getDbField('url'). '">' .$this->getDbField('toptitle'). '</a>'.PHP_EOL;
             $html .= '</div>'.PHP_EOL;  
 			
 			return $html;   
@@ -468,7 +468,47 @@ EOT;
 public function siteHead()
 	{
 		$html = ''.PHP_EOL;
-
+        $html = '<style type="text/css" media="screen">
+	            .stickybar{
+	            position:fixed;
+	            left:0;right:0;top:0;font-size:14px;
+	            font-weight:400;
+	            height:35px;
+	            line-height:35px;
+	            overflow:visible;
+	            text-align:center;
+	            width:100%;
+	            z-index:1000;
+	            border-bottom-width:3px;
+	            border-bottom-style:solid;
+	            font-family:Georgia,Times New Roman,Times,serif;
+	            color:#ffffff;
+	            border-bottom-color:#ffffff;
+	            margin:0;
+	            padding:0;
+	            background-color: #ffffff;
+	            
+	            -webkit-border-bottom-right-radius:5px;
+	            -webkit-border-bottom-left-radius:5px;
+	            -moz-border-radius-bottomright:5px;
+	            -moz-border-radius-bottomleft:5px;
+	            border-bottom-right-radius:5px;
+	            border-bottom-left-radius:5px;
+	            
+	        }
+	        
+	       body {
+	       margin-top:35px !important
+	           
+	       }
+	        
+	        .stickybar a, .stickybar a:link, .stickybar a:visited, .stickybar a:hover{color:#ffffff;font-size:14px; text-decoration:none; border:none;  padding:0}
+	        .stickybar a:hover{text-decoration:underline}
+	        .stickybar a{color:#fff; display:block;padding-bottom: 8px; text-align:center; text-decoration:none;text-shadow:0 0 0.1em #000}
+	        .stickybar a:hover{ opacity: 0.8}
+	        </style>'
+	        
+	        .PHP_EOL;
 	     
 	     return $html;   
 	}
