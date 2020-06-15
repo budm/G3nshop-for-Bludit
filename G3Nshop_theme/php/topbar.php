@@ -4,6 +4,12 @@
 
     
 <nav class="fixed-top mediumnavigation pt-1">
+<div id="content">
+				    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+</div>    
+      		
+        </a>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
                 <script type='text/javascript'>
@@ -17,9 +23,10 @@
                             }
                 </script>
 <div style="display: flex; justify-content: space-around">
+    
   <div>
       <div class="topnav" id="myTopnav">
-      <a href="<?php echo $site->url(); ?>"><img src="<?php echo Theme::src('img/logo.png');  ?>" style="max-width:150px;width:100%;>"</a>
+      <a href="<?php echo $site->url(); ?>"><img src="<?php echo Theme::src('img/logo.png');  ?>" style="max-width:200px;width:100%;>"</a>
       <?php
 			foreach ($categories->db as $key=>$fields){ ?>
 			<li class="nav-item <?php echo (($url->slug()==$key) ? 'active' :'') ?>" >
@@ -44,6 +51,7 @@
       <?php if (pluginActivated('pluginSearch')): ?>
 			<li>
 				<div class="form-inline my-2 my-lg-0">
+				
 					<input id="search-input" class="form-control mr-sm-2" type="text" placeholder="Search">
 					<span onClick="searchNow()" class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewBox="0 0 25 25"><path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path></svg></span>
 					<script>
@@ -58,16 +66,15 @@
 							}
 						});
 					</script>
+					
 				</div>
+				
 			</li>
 		<?php endif ?>
   </div>
   
-  		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-        </a> 
+ 
 </div>
-
 
 </nav>
 
