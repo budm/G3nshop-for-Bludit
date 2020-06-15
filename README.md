@@ -5,12 +5,19 @@ PHP 7.1 or better
 
 **Changes**:
 > Translated some stuff from Spanish to English
+
 > Unified colorscheme
+
 > Removed sidebars
+
 > Removed tags from product page
+
 > Rearranged the layout of the product page
+
 > Added/enabled the ability to order multiple quantities of product
+
 > Added Share options to products
+
 > *Coming soon* Shop Notification Bar
 
 
