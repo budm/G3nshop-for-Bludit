@@ -1,27 +1,47 @@
+
 <!-- Begin Nav
 ================================================== -->
 
+    
 <nav class="fixed-top mediumnavigation pt-1">
-
-<div class="container">
-	
-	<div class="row">
-            <div class="col-sm-3">
-                <a class="navbar-brand" href="<?php echo $site->url(); ?>">
-                    <img src="<?php echo Theme::src('img/logo.png'); ?>" title="Indybudmarv2" alt="Indybudmarv2">
-                </a>
-            </div>
-		<!-- Begin Menu -->
-		<ul class="nav col-sm-9 justify-content-end">
-			
-			<!-- Categorias -->
-			<?php
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+                <script type='text/javascript'>
+                    function myFunction() {
+                    var x = document.getElementById('myTopnav');
+                     if (x.className === 'topnav') {
+                    x.className += ' responsive';
+                    } else {
+                     x.className = 'topnav';
+                        }
+                            }
+                </script>
+<div style="display: flex; justify-content: space-around">
+  <div>
+      <div class="topnav" id="myTopnav">
+      <a href="<?php echo $site->url(); ?>"><img src="<?php echo Theme::src('img/logo.png');  ?>" style="max-width:150px;width:100%;>"</a>
+      <?php
 			foreach ($categories->db as $key=>$fields){ ?>
 			<li class="nav-item <?php echo (($url->slug()==$key) ? 'active' :'') ?>" >
-				<a title="<?php echo $fields['description']; ?>" class="nav-link <?php echo $fields['name']; ?>" href="<?php echo DOMAIN_CATEGORIES.$key; ?>"><?php echo $fields['name']; ?></a>
+			    
+			    <!-- Begin specific -->
+			    <a href="https://budmarv2.com/dev5/instant-quot">Get a Quote</a>
+			    <!-- End specific -->
+			    
+				<a title="<?php echo $fields['description']; ?>" class="nav-link <?php echo $fields['name']; ?>" href="<?php echo DOMAIN_CATEGORIES.$key; ?>"><?php echo $fields['name']; ?>
+				</a>
+			
 			</li>
-			<?php } ?>
-			<?php if (pluginActivated('pluginSearch')): ?>
+		<?php } ?>
+		
+      </div>
+         
+      
+      
+  </div>
+  
+  <div>
+      <?php if (pluginActivated('pluginSearch')): ?>
 			<li>
 				<div class="form-inline my-2 my-lg-0">
 					<input id="search-input" class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -41,13 +61,15 @@
 				</div>
 			</li>
 		<?php endif ?>
-			
-		</ul>
-		<!-- End Menu -->
-		
-
-	</div>
+  </div>
+  
+  		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+        </a> 
 </div>
+
+
 </nav>
+
 <!-- End Nav
 ================================================== -->

@@ -85,7 +85,7 @@
 			<?php endforeach ?>
 
 		</div>
-		<?php include(THEME_DIR_PHP.'side.php'); ?>
+				<!-- 	?php include(THEME_DIR_PHP.'side.php'); ?> -->
 	</section>
 	<!-- End List Posts
 	================================================== -->

@@ -22,8 +22,6 @@
 			</h2>
 		</div>
 		
-		<?php include(THEME_DIR_PHP.'side-filters.php'); ?>
-		
 		<div class="card-columns listrecent col-md-9 col-xs-12">
 			<?php if (empty($content)) { $language->p('No pages found'); } ?>
 			<?php foreach ($content as $page):

@@ -1,9 +1,9 @@
 {
-	"author": "G3N.es | Miguel Lacha",
+	"author": "G3N.es | Miguel Lacha modified by budm",
 	"email": "",
-	"website": "http://g3n.es/g3nshop-tienda-on-line",
-	"version": "1.0",
-	"releaseDate": "2019-01-29",
+	"website": "https://github.com/budm/G3nshop-for-Bludit",
+	"version": "1.0b",
+	"releaseDate": "2020-06-13",
 	"license": "Freebies",
 	"compatible": "3.6",
 	"notes": ""

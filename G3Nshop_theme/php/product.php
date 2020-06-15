@@ -85,7 +85,7 @@
 				    
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="add" value="1" />
-					<input type="hidden" name="business" value="<?php echo $cuentaPaypal; ?>" />
+					<input type="visible" name="business" value="<?php echo $cuentaPaypal; ?>" />
 					<input type="hidden" name="item_name" value="<?php echo $page->title().$propiedadesProducto; ?>" />
 					<input type="hidden" name="amount" value="<?php echo $precio; ?>" />
 					<input type="hidden" name="currency_code" value="<?php echo $moneda; ?>" />
