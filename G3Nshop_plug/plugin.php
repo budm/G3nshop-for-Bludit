@@ -8,15 +8,18 @@ class pluginG3Nshop extends Plugin {
 		  'moneda' => '',
 		  'cuentaPaypal'	=> '',
 		  'modoPruebas' => '1',
-		  
-		  // budm Variant mods
-		  
-		  'shopbar' => '1',
-		  'shopbarphrase'	=> ''
-		  
+		  'type' => 'Stickybar', 
+		    'title' => 'Fork me on Github',  
+		    'url' => 'https://github.com',
+		    'display' => 'right',
+		    'display2' => 'top',    
+		    'bgcolor' => 'EB593C', 
+		    'linkcolor' => 'FFFFFF',
+
+
 		);
 	}
-	// Formulario de Configuración 
+	// Configuration Form
 	public function form() {
 		
 		global $L, $pages;
@@ -28,7 +31,7 @@ class pluginG3Nshop extends Plugin {
 			$pruebasSeleccionado="";
 			$ventasSeleccionado="selected";
 		}
-		// Crea las opciones de página;
+		// Create page options;
 		$pageOptions = array();
 		
 		
@@ -42,6 +45,9 @@ class pluginG3Nshop extends Plugin {
 		$html = '';
 
 		// Html Selector de página
+		global $Language;
+
+		$html  = '<div>';
 		$html .= '<div>';
 		$html .= '<label>'.$L->get('categoria-tienda').'</label>';
 		$html .= '<select name="categoria">'.PHP_EOL;
@@ -52,7 +58,7 @@ class pluginG3Nshop extends Plugin {
 		$html .= '</select>';
 		$html .= '</div>'.PHP_EOL;
 		
-		// Selector de Moneda
+		// Currency Picker
 		$html .='
 <div>
 	<label>'.$L->get('moneda').'</label>
@@ -163,20 +169,45 @@ class pluginG3Nshop extends Plugin {
 	</select>
 </div>
 
-   
+
+<br>
+<label>'.$L->get('Sticky Bar Settings:').'</label>
+<br>
 
 <div>
-	<label>Enable Shop Bar:</label>
-	<select name="barmode" >
-		<option value="1" '.$barmode.'>'.$L->get(Disabled).'</option>
-		<option value="2" '.$barmodeenabled.'>'.$L->get(Enabled).'</option>
+<label>'.$L->get('Title').'</label>
+<input type="text" name="title" value="'.$this->getValue('title').'" required/>
+</div>	
+
+<div>
+<label>'.$L->get('Link').'</label>
+<input type="text" name="url" value="'.$this->getValue('url').'" required/>
+</div>	
+
+<div>
+<label>'.$L->get('Background Color').'</label>
+<input type="text" name="bgcolor" value="'.$this->getValue('bgcolor').'" required/>
+</div>
+
+<div>
+<label>'.$L->get('Link Color').'</label>
+<input type="text" name="linkcolor" value="'.$this->getValue('linkcolor').'" required/>
+</div>
+<br>
+<br>
+<br>
+<div>
+	<label>'.$L->get('This is not implemented yet').'</label>
+	<label>'.$L->get('Display Side').'</label>
+	<select name="displayOptions" >
+		<option value="Right" '.$right.'>'.$L->get('Right').'</option>
+		<option value="Left" '.$left.'>'.$L->get('Left').'</option>
 	</select>
 </div>
+<br>
+<br>
+<br>
 
-<div>
-	<label>Shop Notification Bar:</label>
-	<input type="text" name="shopbarphrase" value="'.$this->getValue('shopbarphrase').'This is a Test" />
-</div>
 
 <hr>
 <a title="Github Fork" class="" href="https://github.com/budm/G3nshop-for-Bludit/tree/master/G3Nshop_theme/css">Budms Variant Github</a><hr>
@@ -184,10 +215,10 @@ class pluginG3Nshop extends Plugin {
 
 ';      
 		return $html;
-	} // Fin form()
+	} // end form()
 	
 
-	// Crea los elementos necesarios en el admin
+	// Create the necessary elements in the admin
 	public function adminBodyEnd() {
 		
 		global $L, $pages, $site;
@@ -196,6 +227,7 @@ class pluginG3Nshop extends Plugin {
 		if (substr($sitioURL, -1) === "/"){ $sitioURL= substr($sitioURL,0,-1); }
 		$paginaAdmin= explode( "/", $urlEdicion);
 		$paginaAdmin= end($paginaAdmin);
+		
 		
 		$L_Tienda=$L->get('tienda');
 		$L_Producto=$L->get('producto');
@@ -207,8 +239,10 @@ class pluginG3Nshop extends Plugin {
 		$L_ColoresDeEjemplo=$L->get('colores-ejemplo');
 		$L_Buscar=$L->get('buscar');
 		$L_resultados=$L->get('resultados');
-			
-		// capturamos datos que nos son necesarios
+		
+		
+		
+		// capture data that is necessary to us
 		// Si es editar
 
 		
@@ -247,8 +281,8 @@ class pluginG3Nshop extends Plugin {
 		);
 EOT;
 	
-	//Capturar el key de la Session URL
-	//Si captura "edit-content" debe cumplimentar los campos
+	//Capture the key of the Session URL
+	//If you capture "edit-content" you must fill in the fields
 	//$page= new Page('desarrollo-a-medida');//(key)
 	//$page->cumstom() // dar formato y añadir al html que inyecta jquery
 			
@@ -405,7 +439,38 @@ EOT;
 		
 		
 	}
+
+		public function adminHead()
+	{
+		global $layout;
+		$pluginPath = $this->htmlPath();
+		
+		$html  = '';
+
+		if(in_array($layout['controller'], $this->loadWhenController))
+		{
+			$html .= '<script src="' .$pluginPath. 'libs/jscolor/jscolor.js"></script>'.PHP_EOL;		
+		}
+
+		return $html;
+	}
 	
-	
+	// Load js plugin in public theme
+	public function siteBodyEnd()
+	{ 		
+			$html  = '<div class="' .$this->getDbField('type'). '">'.PHP_EOL;
+            $html .= '<a href="' .$this->getDbField('url'). '">' .$this->getDbField('title'). '</a>'.PHP_EOL;
+            $html .= '</div>'.PHP_EOL;  
+			
+			return $html;   
+	}
+
+public function siteHead()
+	{
+		$html = ''.PHP_EOL;
+
+	     
+	     return $html;   
+	}
 	
 }
