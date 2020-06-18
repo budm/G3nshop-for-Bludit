@@ -3,7 +3,9 @@
 ### budm's variant of G3Nshop plugin + theme | Ecommerce solution for Bludit 3.8
 PHP 7.1 or better
 
-**Changes**:
+**Changes/Improvements**:
+
+
 > Translated some stuff from Spanish to English
 
 > Unified colorscheme
@@ -20,7 +22,10 @@ PHP 7.1 or better
 
 > Responsive Navbar
 
->  Shop Notification Bar *Most the code is in place, just getting it working.*
+> Shop Notification Bar 
+
+> Cart Button in NavBar
+
 
 
 **Installation**:
