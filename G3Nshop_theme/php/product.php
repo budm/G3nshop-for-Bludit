@@ -85,11 +85,12 @@
 				    
 					<input type="hidden" name="cmd" value="_cart" />
 					<input type="hidden" name="add" value="1" />
-					<input type="visible" name="business" value="<?php echo $cuentaPaypal; ?>" />
+					<input type="hidden" name="business" value="<?php echo $cuentaPaypal; ?>" />
 					<input type="hidden" name="item_name" value="<?php echo $page->title().$propiedadesProducto; ?>" />
 					<input type="hidden" name="amount" value="<?php echo $precio; ?>" />
 					<input type="hidden" name="currency_code" value="<?php echo $moneda; ?>" />
-					<input type="hidden" name="shipping" value="1.00">
+					<input type="hidden" name="shipping" value="0">
+					
 					<?php
 						$conTC=-1;
 						if(count($arrayTallas) > 1){
@@ -119,12 +120,13 @@
 						Quantity: 
 					<input type="visible" name="quantity" value="1" />
 					<br>
+					Price: $<?php echo $precio; ?> USD ea
 	
 		<!-- Begin Price -->
 			<?php if (!empty($page->tags(true))): ?>
  			<div class="after-post-tags">
 				<ul class="price">
-					$<?php echo $precio; ?> USD ea
+						<!-- Will Remove later -->
 				</ul>
 			</div>
 			<?php endif; ?>
@@ -143,7 +145,6 @@
                      <a class="a2a_button_facebook"></a>
                      <a class="a2a_button_twitter"></a>
                      <a class="a2a_button_pinterest"></a>
-                     <a class="a2a_dd" href="https://www.addtoany.com/share">
                 </div>
                     <script async src="https://static.addtoany.com/menu/page.js"></script>
 

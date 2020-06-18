@@ -5,9 +5,18 @@ Version:1.0.1
 License: https://www.wowthemes.net/freebies-license/
 */
 body {
-	padding-top:7rem;
+	padding-top:1px;
 	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 
+}
+
+#content {
+    position: relative;
+}
+#content img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 *, ::after, ::before {
@@ -104,6 +113,13 @@ section {
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+    #div-mobile {
+    display: none;
+    }
+    
+    mobilenav {
+    display: none;
+  }
 	.relacionados .card-columns{
 		column-count: 5;
 		
@@ -112,6 +128,13 @@ section {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    #div-mobile {
+    display: none;
+    }
+    
+    mobilenav {
+    display: none;
+  }
 	.relacionados .card-columns{
 		column-count: 6;
 		
@@ -723,6 +746,11 @@ a img.nav-svg-icon {
 .formAgregarCarrito{
 	border-top: 2px solid #007bff;
 	border-bottom: 2px solid #007bff;
+	padding: 1em;
+}
+.cartbutton{
+	border-top: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
 	padding: 1em;
 }
 ul.tags li.producto-color-Gris a{	background: gray; color:#fff; font-weight:700;}

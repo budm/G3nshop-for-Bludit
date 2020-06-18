@@ -3,10 +3,13 @@
 ================================================== -->
 
     
-<nav class="fixed-top mediumnavigation pt-1">
-<div id="content">
-				    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
+<nav class="mediumnavigation pt-1">
+    
+<div id="content" style="display: flex; justify-content: flex-end">
+    <div id="div-mobile"><a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i></div>
+    <div id="div-desktop"></div>
+    
 </div>    
       		
         </a>
@@ -48,6 +51,7 @@
   </div>
   
   <div>
+      
       <?php if (pluginActivated('pluginSearch')): ?>
 			<li>
 				<div class="form-inline my-2 my-lg-0">
@@ -71,6 +75,16 @@
 				
 			</li>
 		<?php endif ?>
+				<form class="cartbutton" action="<?php echo $urlPaypal; ?>" method="post">
+				    
+				    <input type="hidden" name="cmd" value="_cart" />
+					<input type="hidden" name="add" value="0" />
+					<input type="hidden" name="business" value="<?php echo $cuentaPaypal; ?>" />
+
+                    <center><input class="btn btn-success" type="submit" name="submit" value="Cart" /></center>
+					
+					
+				</form>
   </div>
   
  

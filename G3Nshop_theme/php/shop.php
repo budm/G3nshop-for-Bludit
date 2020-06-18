@@ -1,6 +1,8 @@
 <!-- Begin Site Title
 ================================================== -->
 <div class="container">
+    <br>
+    <br>
 	<!-- Begin List Posts DOMAIN_CATEGORIES
 	================================================== -->
 	<section class="recent-posts row">
@@ -20,6 +22,7 @@
 				} ?>	
 				</span>
 			</h2>
+			<br>
 		</div>
 		
 		<div class="card-columns listrecent col-md-9 col-xs-12">
