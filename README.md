@@ -26,7 +26,7 @@ PHP 7.1 or better
 
 > Cart Button in NavBar
 
-
+> Per Product Shipping
 
 **Installation**:
 
@@ -36,6 +36,7 @@ Enter the Admin. Active the plugin, configure the plugin, and enable the theme.
 **Example content**:
 
 > Caution !!!
+> Example content has not been tested with per product shipping, and may not work. I'll be working on adding per product shipping examples later.
 > This erase the current content that you could have in bludit.
 
 If you want to test the application you can use the bl-contet folder to replace your content with the example content.
