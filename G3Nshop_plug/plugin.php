@@ -16,9 +16,7 @@ class pluginG3Nshop extends Plugin {
 		  'display' => 'right',
 		  'display2' => 'top',    
 		  'colorbg' => 'EB593C', 
-		  'linkcolor' => 'FFFFFF',
-
-
+		  'linkcolor' => 'FFFFFF'
 		);
 	}
 	// Configuration Form
@@ -171,6 +169,7 @@ class pluginG3Nshop extends Plugin {
 		<option value="2" '.$ventasSeleccionado.'>'.$L->get('ventas').'</option>
 	</select>
 </div>
+
 <br>
 <label>'.$L->get('Sticky Bar Settings:').'</label>
 <br>
@@ -219,6 +218,7 @@ class pluginG3Nshop extends Plugin {
 		$L_Tienda=$L->get('tienda');
 		$L_Producto=$L->get('producto');
 		$L_Productos_Publicados=$L->get('productos-publicados');
+		$L_Shipping=$L->get('Shipping');
 		$L_Precio=$L->get('precio');
 		$L_Tallas=$L->get('tallas');
 		$L_Colores=$L->get('colores');
@@ -279,7 +279,10 @@ EOT;
 			foreach ($propiedadesPersonales as $valores){
 				if (strpos($valores, "{") !== false ){
 					if (strpos($valores, "P{") !== false ){
-						$precio= substr(trim($valores), 2);
+						$precio= substr(trim($valores), 2).", ";	
+					}
+					if (strpos($valores, "S{") !== false ){
+						$shipping.= substr(trim($valores), 2).", ";	
 					}
 					if (strpos($valores, "T{") !== false ){
 						$tallas.= substr(trim($valores), 2).", ";	
@@ -302,6 +305,7 @@ EOT;
 		$html.=<<<EOT
 		$("#jstitle").after(
 			'<small class="form-text">$L_Precio</small><input  type="number" placeholder="0,00" min="0"  step="0.01" id="precio" class="form-control mt-1" value="$precio" />'
+		+   '<small class="form-text">$L_Shipping</small><input  type="number" placeholder="0.00" min=".50"  step="0.01" id="shipping" class="form-control mt-1" value="$shipping" />'
 		+	'<small class="form-text">$L_Tallas ($L_Separar_por_comas)</small><input type="text" id="tallas" class="form-control mt-1" value="$tallas" placeholder="M, L, XL" />'
 		+	'<small class="form-text">$L_Colores ($L_Separar_por_comas)</small><input type="text" id="colores" class="form-control mt-1" value="$colores" placeholder="$L_ColoresDeEjemplo"/>'
 		);
@@ -318,16 +322,18 @@ EOT;
 		$("#jstags").val("$etiquetasNormales");
 		$("#jsbuttonSave").mouseup(function() {
 			var Precio = "";
+			var Shipping = "";
 			var Tallas = "";
 			var Colores = "";
 			var Etiquetas= "";
 			
 			if( $("#precio").val() !== "" ) { Precio = 'P{'+$("#precio").val().replace(/ /g, ""); }
+			if( $("#shipping").val() !== "" ) { Shipping = ',S{'+$("#shipping").val().replace(/ /g, "").replace(/,/g, ",S{"); }
 			if( $("#tallas").val() !== "" ) { Tallas = ',T{'+$("#tallas").val().replace(/ /g, "").replace(/,/g, ",T{"); }
 			if( $("#colores").val() !== "" ){ Colores= ',C{'+$("#colores").val().replace(/ /g, "").replace(/,/g, ",C{"); }
 			if( $("#jstags").val() !== "" ) { Etiquetas= ','+$("#jstags").val(); }
 			
-			var propiedadesProducto= Precio+Tallas+Colores+Etiquetas;
+			var propiedadesProducto= Precio+Shipping+Tallas+Colores+Etiquetas;
 			$("#jstags").val(propiedadesProducto)
 		})
 EOT;
