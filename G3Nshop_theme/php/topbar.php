@@ -1,17 +1,30 @@
 
 <!-- Begin Nav
 ================================================== -->
+<script>
 
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
     
 <nav class="mediumnavigation pt-1">
     
-<div id="content" style="display: flex; justify-content: flex-end">
+
+<div id="navbar">
     <div id="div-mobile"><a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i></div>
     <div id="div-desktop"></div>
-    
-</div>    
-      		
+  	
         </a>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -89,7 +102,7 @@
   
  
 </div>
-
+</div>
 </nav>
 
 <!-- End Nav
