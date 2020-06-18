@@ -23,6 +23,7 @@ PHP 7.1 or better
 - Cart Button in NavBar
 - Per Product Shipping
 - If product has zero shipping, then it will display a free shipping notification
+- Discount the price of the product
 
 and more features to come.
 
