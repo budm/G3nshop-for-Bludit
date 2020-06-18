@@ -3,6 +3,10 @@
 <div class="container">
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
 	<!-- Begin List Posts DOMAIN_CATEGORIES
 	================================================== -->
 	<section class="recent-posts row">

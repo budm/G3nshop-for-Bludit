@@ -178,8 +178,15 @@
 		<!-- End Price -->
 
                     <?php } ?>
+                    
+                    
 					
 					<input class="btn btn-success" type="submit" name="submit" value="<?php echo $language->p('agregar-carro'); ?>" />
+					<br>
+					<br>
+					<!-- PayPal Logo -->
+					<a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/na/us/logo-center/9_bdg_secured_by_pp_2line.png" border="0" alt="Secured by PayPal"></a>
+					<!-- PayPal Logo -->
 					
 				</form>
 				<?php } ?>
