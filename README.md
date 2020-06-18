@@ -18,12 +18,12 @@ PHP 7.1 or better
 - Rearranged the layout of the product page
 - Added/enabled the ability to order multiple quantities of product
 - Added Share options to products
-- Responsive Navbar
-- Shop Notification Bar 
-- Cart Button in NavBar
-- Per Product Shipping
-- If product has zero shipping, then it will display a free shipping notification
-- Discount the price of the product
+- Added Responsive Navbar
+- Added Shop Notification Bar 
+- Added Cart Button in NavBar
+- Added Per Product Shipping
+- Added If product has zero shipping, then it will display a free shipping notification
+- Added Discount the price of the product
 
 and more features to come.
 
