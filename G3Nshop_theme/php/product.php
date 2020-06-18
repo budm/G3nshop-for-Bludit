@@ -47,6 +47,12 @@
 									$liclass= 'shipping';
 									
 								}
+								if (strpos($tagName, "D{") !== false ){
+									$discount= number_format(substr(trim($tagName), 2), 2, '.', '');
+									$tagName= substr(trim($tagName), 2)." ".$moneda;
+									$liclass= 'discount';
+									
+								}
 								if (strpos($tagName, "T{") !== false ){
 									
 									$tagName= substr(trim($tagName), 2);
@@ -95,6 +101,7 @@
 					<input type="hidden" name="item_name" value="<?php echo $page->title().$propiedadesProducto; ?>" />
 					<input type="hidden" name="amount" value="<?php echo $precio; ?>" />
 					<input type="hidden" name="currency_code" value="<?php echo $moneda; ?>" />
+					<input type="hidden" name="discount_amount" value="<?php echo $discount; ?>">
 					<input type="hidden" name="shipping" value="<?php echo $shipping; ?>">
 					
 					<?php
@@ -126,8 +133,27 @@
 						Quantity: 
 					<input type="visible" name="quantity" value="1" />
 					<br>
-					Price: $<?php echo $precio . " " . $moneda; ?>  ea
+					<br>
 					
+					<?php 
+					if ($discount !== "" && $discount !== "0" && $discount !== "0.00") {
+					    $str1="This Product is on Sale!";
+					    $str3="Save:";
+					    $str2="off";
+					    $str6="the usual:";
+                        echo "<B>".$str1."</B>";
+                        echo "<html><br></html>";
+                        echo "<B>" . $str3 . " " . $discount . " " . $moneda . " " . $str2 . "</B>" . " " .  $str6 . " " . $precio . " " . $moneda;
+                        
+                    } 
+                    else {
+                        $str4="Price: ";
+                        $str5=" ea ";
+                        echo "<B>".$str4 . " " . $precio . " " . $moneda . " " . $str5."</B>";
+                    }
+                    ?>
+
+					<br>
 					<br>
 					
 					<?php 
