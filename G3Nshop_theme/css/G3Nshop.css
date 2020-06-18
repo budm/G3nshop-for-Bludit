@@ -19,6 +19,42 @@ body {
     right: 0px;
 }
 
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  top: 35px;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
 *, ::after, ::before {
     list-style-type: none;
 }
@@ -66,6 +102,12 @@ section {
   color: black;
 }
 
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 /*
 .section-title h2 {
