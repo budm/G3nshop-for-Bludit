@@ -219,6 +219,7 @@ class pluginG3Nshop extends Plugin {
 		$L_Producto=$L->get('producto');
 		$L_Productos_Publicados=$L->get('productos-publicados');
 		$L_Shipping=$L->get('Shipping');
+		$L_Discount=$L->get('Discount');
 		$L_Precio=$L->get('precio');
 		$L_Tallas=$L->get('tallas');
 		$L_Colores=$L->get('colores');
@@ -284,6 +285,9 @@ EOT;
 					if (strpos($valores, "S{") !== false ){
 						$shipping.= substr(trim($valores), 2).", ";	
 					}
+					if (strpos($valores, "D{") !== false ){
+						$discount.= substr(trim($valores), 2).", ";	
+					}
 					if (strpos($valores, "T{") !== false ){
 						$tallas.= substr(trim($valores), 2).", ";	
 					}
@@ -306,6 +310,7 @@ EOT;
 		$("#jstitle").after(
 			'<small class="form-text">$L_Precio</small><input  type="number" placeholder="0,00" min="0"  step="0.01" id="precio" class="form-control mt-1" value="$precio" />'
 		+   '<small class="form-text">$L_Shipping</small><input  type="number" placeholder="0.00" min=".50"  step="0.01" id="shipping" class="form-control mt-1" value="$shipping" />'
+		+   '<small class="form-text">$L_Discount</small><input  type="number" placeholder="0.00" min="0.00"  step="0.01" id="discount" class="form-control mt-1" value="$discount" />'
 		+	'<small class="form-text">$L_Tallas ($L_Separar_por_comas)</small><input type="text" id="tallas" class="form-control mt-1" value="$tallas" placeholder="M, L, XL" />'
 		+	'<small class="form-text">$L_Colores ($L_Separar_por_comas)</small><input type="text" id="colores" class="form-control mt-1" value="$colores" placeholder="$L_ColoresDeEjemplo"/>'
 		);
@@ -323,17 +328,19 @@ EOT;
 		$("#jsbuttonSave").mouseup(function() {
 			var Precio = "";
 			var Shipping = "";
+			var Discount = "";
 			var Tallas = "";
 			var Colores = "";
 			var Etiquetas= "";
 			
 			if( $("#precio").val() !== "" ) { Precio = 'P{'+$("#precio").val().replace(/ /g, ""); }
 			if( $("#shipping").val() !== "" ) { Shipping = ',S{'+$("#shipping").val().replace(/ /g, "").replace(/,/g, ",S{"); }
+			if( $("#discount").val() !== "" ) { Discount = ',D{'+$("#discount").val().replace(/ /g, "").replace(/,/g, ",D{"); }
 			if( $("#tallas").val() !== "" ) { Tallas = ',T{'+$("#tallas").val().replace(/ /g, "").replace(/,/g, ",T{"); }
 			if( $("#colores").val() !== "" ){ Colores= ',C{'+$("#colores").val().replace(/ /g, "").replace(/,/g, ",C{"); }
 			if( $("#jstags").val() !== "" ) { Etiquetas= ','+$("#jstags").val(); }
 			
-			var propiedadesProducto= Precio+Shipping+Tallas+Colores+Etiquetas;
+			var propiedadesProducto= Precio+Shipping+Discount+Tallas+Colores+Etiquetas;
 			$("#jstags").val(propiedadesProducto)
 		})
 EOT;
