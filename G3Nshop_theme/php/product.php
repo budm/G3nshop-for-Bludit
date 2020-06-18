@@ -41,6 +41,12 @@
 									$liclass= 'precio';
 									
 								}
+								if (strpos($tagName, "S{") !== false ){
+									$shipping= number_format(substr(trim($tagName), 2), 2, '.', '');
+									$tagName= substr(trim($tagName), 2)." ".$moneda;
+									$liclass= 'shipping';
+									
+								}
 								if (strpos($tagName, "T{") !== false ){
 									
 									$tagName= substr(trim($tagName), 2);
@@ -89,7 +95,7 @@
 					<input type="hidden" name="item_name" value="<?php echo $page->title().$propiedadesProducto; ?>" />
 					<input type="hidden" name="amount" value="<?php echo $precio; ?>" />
 					<input type="hidden" name="currency_code" value="<?php echo $moneda; ?>" />
-					<input type="hidden" name="shipping" value="0">
+					<input type="hidden" name="shipping" value="<?php echo $shipping; ?>">
 					
 					<?php
 						$conTC=-1;
@@ -120,7 +126,20 @@
 						Quantity: 
 					<input type="visible" name="quantity" value="1" />
 					<br>
-					Price: $<?php echo $precio; ?> USD ea
+					Price: $<?php echo $precio . " " . $moneda; ?>  ea
+					
+					<br>
+					
+					<?php 
+					if ($shipping !== "" && $shipping !== "0" && $shipping !== "0.00") {
+					    $str1="Shipping: ";
+                        echo $str1 . " " . $shipping . " " . $moneda;
+                        
+                    } 
+                    else {
+                        echo "This Product Ships Free!";
+                    }
+                    ?>
 	
 		<!-- Begin Price -->
 			<?php if (!empty($page->tags(true))): ?>
