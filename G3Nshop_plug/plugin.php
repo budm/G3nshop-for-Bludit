@@ -1,3 +1,5 @@
+
+  
 <?php
 class pluginG3Nshop extends Plugin {
 	
@@ -9,12 +11,12 @@ class pluginG3Nshop extends Plugin {
 		  'cuentaPaypal'	=> '',
 		  'modoPruebas' => '1',
 		  'type' => 'Stickybar', 
-		  'toptitle' => 'Fork me on Github',  
-		    'url' => 'https://github.com',
-		    'display' => 'right',
-		    'display2' => 'top',    
-		    'bgcolor' => 'EB593C', 
-		    'linkcolor' => 'FFFFFF',
+		  'toptitle' => 'Thanks for using budms variant G3Nshop',  
+		  'url' => 'https://github.com/budm/G3nshop-for-Bludit/',
+		  'display' => 'right',
+		  'display2' => 'top',    
+		  'colorbg' => 'EB593C', 
+		  'linkcolor' => 'FFFFFF',
 
 
 		);
@@ -31,6 +33,7 @@ class pluginG3Nshop extends Plugin {
 			$pruebasSeleccionado="";
 			$ventasSeleccionado="selected";
 		}
+		
 		// Create page options;
 		$pageOptions = array();
 		
@@ -168,51 +171,35 @@ class pluginG3Nshop extends Plugin {
 		<option value="2" '.$ventasSeleccionado.'>'.$L->get('ventas').'</option>
 	</select>
 </div>
-
-
 <br>
 <label>'.$L->get('Sticky Bar Settings:').'</label>
 <br>
 
 <div>
-<label>'.$L->get('Title').'</label>
+<label for="toptitle">'.$L->get('Title').'</label>
 <input type="text" name="toptitle" value="'.$this->getValue('toptitle').'" required/>
 </div>	
 
 <div>
 <label>'.$L->get('Link').'</label>
-<input type="text" name="url" value="'.$this->getValue('url').'" required/>
-</div>	
+<input class="width-40" type="url" name="url" value="'.$this->getValue('url').'" required/>
+</div>
 
 <div>
 <label>'.$L->get('Background Color').'</label>
-<input type="text" name="bgcolor" value="'.$this->getValue('bgcolor').'" required/>
+<input class="colorbg" type="text" name="colorbg" value="'.$this->getValue('colorbg').'" required/>
 </div>
 
 <div>
 <label>'.$L->get('Link Color').'</label>
-<input type="text" name="linkcolor" value="'.$this->getValue('linkcolor').'" required/>
+<input class="color" type="text" name="linkcolor" value="'.$this->getValue('linkcolor').'" required/>
 </div>
-<br>
-<br>
-<br>
-<div>
-	<label>'.$L->get('This is not implemented yet').'</label>
-	<label>'.$L->get('Display Side').'</label>
-	<select name="displayOptions" >
-		<option value="Right" '.$right.'>'.$L->get('Right').'</option>
-		<option value="Left" '.$left.'>'.$L->get('Left').'</option>
-	</select>
-</div>
-<br>
-<br>
-<br>
 
-
+<br>
+<br>
+<br>
 <hr>
 <a title="Github Fork" class="" href="https://github.com/budm/G3nshop-for-Bludit/tree/master/G3Nshop_theme/css">Budms Variant Github</a><hr>
-
-
 ';      
 		return $html;
 	} // end form()
@@ -313,7 +300,6 @@ EOT;
 		if($esEdicionProducto == 'loEs' || isset($_GET['GS'])){	
 			$categoriaTienda=$this->getValue('categoria');
 		$html.=<<<EOT
-
 		$("#jstitle").after(
 			'<small class="form-text">$L_Precio</small><input  type="number" placeholder="0,00" min="0"  step="0.01" id="precio" class="form-control mt-1" value="$precio" />'
 		+	'<small class="form-text">$L_Tallas ($L_Separar_por_comas)</small><input type="text" id="tallas" class="form-control mt-1" value="$tallas" placeholder="M, L, XL" />'
@@ -386,7 +372,6 @@ EOT;
 				
 				$("#busqueda").val("");
 				$("#filtro-busqueda").show("slow");
-
 			}
 		});		
 EOT;
@@ -398,7 +383,6 @@ EOT;
 				$html.=<<<EOT
 		$("a[href*='/admin/edit-content/$key'].btn").parent().parent().addClass("producto");
 		$("a[href*='/admin/edit-content/$key']").not(".btn").parent().append("<small>$etiquetas</small>");
-
 EOT;
 				}
 			}
@@ -439,28 +423,30 @@ EOT;
 		
 		
 	}
+	
 
-		public function adminHead()
+	public function adminHead()
 	{
 		global $layout;
 		$pluginPath = $this->htmlPath();
-		
+
 		$html  = '';
 
 		if(in_array($layout['controller'], $this->loadWhenController))
 		{
-			$html .= '<script src="' .$pluginPath. 'libs/jscolor/jscolor.js"></script>'.PHP_EOL;		
+			$html .= '<script src="' .$pluginPath. 'libs/jscolor/jscolor.js"></script>'.PHP_EOL;
 		}
 
 		return $html;
 	}
 	
+	
 	// Load js plugin in public theme
 	public function siteBodyEnd()
 	{ 		
-			$html  = '<div class="' .$this->getDbField('type'). '">'.PHP_EOL;
-            $html .= '<a href="' .$this->getDbField('url'). '">' .$this->getDbField('toptitle'). '</a>'.PHP_EOL;
-            $html .= '</div>'.PHP_EOL;  
+			$html  = '<div class="stickybar">'.PHP_EOL;
+            $html .= '<a href="' .$this->getValue('url'). '">' .$this->getValue('toptitle'). '</a>'.PHP_EOL;
+            $html .= '</div>'.PHP_EOL; 
 			
 			return $html;   
 	}
@@ -468,49 +454,17 @@ EOT;
 public function siteHead()
 	{
 		$html = ''.PHP_EOL;
-        $html = '<style type="text/css" media="screen">
-	            .stickybar{
-	            position:fixed;
-	            left:0;right:0;top:0;font-size:14px;
-	            font-weight:400;
-	            height:35px;
-	            line-height:35px;
-	            overflow:visible;
-	            text-align:center;
-	            width:100%;
-	            z-index:1000;
-	            border-bottom-width:3px;
-	            border-bottom-style:solid;
-	            font-family:Georgia,Times New Roman,Times,serif;
-	            color:#ffffff;
-	            border-bottom-color:#ffffff;
-	            margin:0;
-	            padding:0;
-	            background-color: #ffffff;
-	            
-	            -webkit-border-bottom-right-radius:5px;
-	            -webkit-border-bottom-left-radius:5px;
-	            -moz-border-radius-bottomright:5px;
-	            -moz-border-radius-bottomleft:5px;
-	            border-bottom-right-radius:5px;
-	            border-bottom-left-radius:5px;
-	            
-	        }
-	        
-	       body {
-	       margin-top:35px !important
-	           
-	       }
-	        
-	        .stickybar a, .stickybar a:link, .stickybar a:visited, .stickybar a:hover{color:#ffffff;font-size:14px; text-decoration:none; border:none;  padding:0}
+        $html .= '<style type="text/css" media="screen">
+	        .stickybar{position:fixed;left:0;right:0;top:0;font-size:14px; font-weight:400; height:35px; line-height:35px; overflow:visible; text-align:center; width:100%; z-index:1000; border-bottom-width:3px; border-bottom-style:solid; font-family:Georgia,Times New Roman,Times,serif; color:#fff; border-bottom-color:#fff; margin:0; padding:0; background-color: #' .$this->getValue('colorbg'). ';-webkit-border-bottom-right-radius:5px;-webkit-border-bottom-left-radius:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-bottomleft:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;}
+	         body {margin-top:35px !important}
+	        .stickybar a, .stickybar a:link, .stickybar a:visited, .stickybar a:hover{color:#' .$this->getValue('linkcolor'). ';font-size:14px; text-decoration:none; border:none;  padding:0}
 	        .stickybar a:hover{text-decoration:underline}
 	        .stickybar a{color:#fff; display:block;padding-bottom: 8px; text-align:center; text-decoration:none;text-shadow:0 0 0.1em #000}
 	        .stickybar a:hover{ opacity: 0.8}
-	        </style>'
-	        
-	        .PHP_EOL;
+	        </style>'.PHP_EOL;
 	     
-	     return $html;   
+	     return $html;  
+	     
 	}
 	
 }
