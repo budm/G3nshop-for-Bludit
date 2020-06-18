@@ -37,7 +37,7 @@ Enter the Admin. Active the plugin, configure the plugin, and enable the theme.
 
 > Caution !!!
 > Example content has not been tested with per product shipping, and may not work. I'll be working on adding per product shipping examples later.
-> This erase the current content that you could have in bludit.
+> This will erase the current content that you could have in bludit.
 
 If you want to test the application you can use the bl-contet folder to replace your content with the example content.
 It is useful for installations from 0, or installations with the intention of development or testing.
