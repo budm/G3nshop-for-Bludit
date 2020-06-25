@@ -11,6 +11,8 @@ class pluginG3Nshop extends Plugin {
 		  'cuentaPaypal'	=> '',
 		  'modoPruebas' => '1',
 		  'type' => 'Stickybar', 
+		  'setapi_key' => 'ENTER_YOUR_API_KEY_HERE',
+		  'setlist_id' => 'ENTER_YOUR_LIST_ID_HERE',
 		  'toptitle' => 'Thanks for using budms variant G3Nshop',  
 		  'url' => 'https://github.com/budm/G3nshop-for-Bludit/',
 		  'display' => 'right',
@@ -223,6 +225,7 @@ class pluginG3Nshop extends Plugin {
 		$L_Precio=$L->get('precio');
 		$L_Tallas=$L->get('tallas');
 		$L_Colores=$L->get('colores');
+		$L_SecondaryColor=$L->get('secondarycolor');
 		$L_Separar_por_comas=$L->get('separar-x-comas');
 		$L_ColoresDeEjemplo=$L->get('colores-ejemplo');
 		$L_Buscar=$L->get('buscar');
@@ -294,6 +297,9 @@ EOT;
 					if (strpos($valores, "C{") !== false ){
 						$colores.= substr(trim($valores), 2).", ";
 					}
+					if (strpos($valores, "W{") !== false ){
+						$secondarycolor.= substr(trim($valores), 2).", ";
+					}
 				}else{
 				  $etiquetasNormales .= $valores.", ";
 				}
@@ -301,6 +307,7 @@ EOT;
 		
 			$tallas= substr($tallas, 0, -2);
 			$colores= substr($colores, 0, -2);
+			$secondarycolor= substr($secondarycolor, 0, -2);
 			$etiquetasNormales= substr($etiquetasNormales, 0, -2);
 		}
 		
@@ -313,6 +320,7 @@ EOT;
 		+   '<small class="form-text">$L_Discount</small><input  type="number" placeholder="0.00" min="0.00"  step="0.01" id="discount" class="form-control mt-1" value="$discount" />'
 		+	'<small class="form-text">$L_Tallas ($L_Separar_por_comas)</small><input type="text" id="tallas" class="form-control mt-1" value="$tallas" placeholder="M, L, XL" />'
 		+	'<small class="form-text">$L_Colores ($L_Separar_por_comas)</small><input type="text" id="colores" class="form-control mt-1" value="$colores" placeholder="$L_ColoresDeEjemplo"/>'
+		+	'<small class="form-text">(((NOT WORKING YET WILL NOT WORK ON THE USER END)))     Secondary Color: (If the product has any then $L_Separar_por_comas)</small><input type="text" id="secondarycolor" class="form-control mt-1" value="$secondarycolor" placeholder=""/>'
 		);
 EOT;
 			if(isset($_GET['GS'])){
@@ -331,6 +339,7 @@ EOT;
 			var Discount = "";
 			var Tallas = "";
 			var Colores = "";
+			var SecondaryColor = "";
 			var Etiquetas= "";
 			
 			if( $("#precio").val() !== "" ) { Precio = 'P{'+$("#precio").val().replace(/ /g, ""); }
@@ -338,9 +347,10 @@ EOT;
 			if( $("#discount").val() !== "" ) { Discount = ',D{'+$("#discount").val().replace(/ /g, "").replace(/,/g, ",D{"); }
 			if( $("#tallas").val() !== "" ) { Tallas = ',T{'+$("#tallas").val().replace(/ /g, "").replace(/,/g, ",T{"); }
 			if( $("#colores").val() !== "" ){ Colores= ',C{'+$("#colores").val().replace(/ /g, "").replace(/,/g, ",C{"); }
+			if( $("#secondarycolor").val() !== "" ){ SecondaryColor= ',W{'+$("#secondarycolor").val().replace(/ /g, "").replace(/,/g, ",W{"); }
 			if( $("#jstags").val() !== "" ) { Etiquetas= ','+$("#jstags").val(); }
 			
-			var propiedadesProducto= Precio+Shipping+Discount+Tallas+Colores+Etiquetas;
+			var propiedadesProducto= Precio+Shipping+Discount+Tallas+Colores+SecondaryColor+Etiquetas;
 			$("#jstags").val(propiedadesProducto)
 		})
 EOT;
@@ -462,6 +472,7 @@ EOT;
             $html .= '</div>'.PHP_EOL; 
 			
 			return $html;   
+			
 	}
 
 public function siteHead()
@@ -477,6 +488,8 @@ public function siteHead()
 	        </style>'.PHP_EOL;
 	     
 	     return $html;  
+	     
+	     
 	     
 	}
 	
