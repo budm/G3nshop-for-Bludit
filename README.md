@@ -24,6 +24,7 @@ PHP 7.1 or better
 - Added Per Product Shipping
 - Added If product has zero shipping, then it will display a free shipping notification
 - Added Discount the price of the product
+- *Began* Implementing the ability to have dual color products.
 
 and more features to come.
 
